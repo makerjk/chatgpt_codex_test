@@ -1,7 +1,13 @@
+!pip install -q finance-datareader
+
+finstate = fdr.SnapDataReader('NAVER/FINSTATE/005930')
+
 import FinanceDataReader as fdr
 
 finstate = fdr.SnapDataReader('NAVER/FINSTATE/005930')
 finstate
+
+finstate.columns
 
 profit = finstate[['매출액', '영업이익', '당기순이익']]
 profit
@@ -13,25 +19,10 @@ ratio
 
 fdr.chart.plot(ratio, secondary_y='EPS(원)')
 
-fdr.SnapDataReader('NAVER/FINSTATE/005930') # 기본값: '0'=주재무제표,'Y'=년
-fdr.SnapDataReader('NAVER/FINSTATE-Q/005930') # '0'=주재무제표(기본), 'Q'=분기
-fdr.SnapDataReader('NAVER/FINSTATE-3Q/005930') # '3'=K-IFRS별도, 'Q'=분기
-fdr.SnapDataReader('NAVER/FINSTATE-T/005930') # '0'=주재무제표(기본), 'A'=연간+분기
-
-
-fdr.SnapDataReader('NAVER/FINSTATE/005930') # 연간 주재무제표
-
-fdr.SnapDataReader('NAVER/FINSTATE-Y/005930') # 연간 주재무(='NAVER/FINSTATE-2Y/005930')
-fdr.SnapDataReader('NAVER/FINSTATE-1Y/005930') # 연간 K-IFRS 별도
-fdr.SnapDataReader('NAVER/FINSTATE-2Y/005930') # 연간 K-IFRS 연결
-fdr.SnapDataReader('NAVER/FINSTATE-3Y/005930') # 연간 K-GAAP 개별
-fdr.SnapDataReader('NAVER/FINSTATE-4Y/005930') # 연간 K-GAAP 연결
-
-fdr.SnapDataReader('NAVER/FINSTATE-Q/005930') # 분기 주재무(='NAVER/FINSTATE-2Q/005930')
-fdr.SnapDataReader('NAVER/FINSTATE-1Q/005930') # K-IFRS 별도
-fdr.SnapDataReader('NAVER/FINSTATE-2Q/005930') # K-IFRS 연결
-fdr.SnapDataReader('NAVER/FINSTATE-3Q/005930') # K-GAAP 개별
-fdr.SnapDataReader('NAVER/FINSTATE-4Q/005930') # K-GAAP 연결
+fdr.SnapDataReader('NAVER/FINSTATE/005930') # 년도별, 주재무제표
+fdr.SnapDataReader('NAVER/FINSTATE-Q/005930') # 분기별, 주재무제표
+fdr.SnapDataReader('NAVER/FINSTATE-Q3/005930') # 분기별, K-IFRS별도
+fdr.SnapDataReader('NAVER/FINSTATE-A/005930') # 년도+분기, 주재무제표
 
 
 # SK하이닉스(000660)
