@@ -1,4 +1,4 @@
-!pip install -q finance-datareader
+pip install -q finance-datareader
 
 finstate = fdr.SnapDataReader('NAVER/FINSTATE/005930')
 
